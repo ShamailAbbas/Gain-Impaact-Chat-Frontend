@@ -1,0 +1,78 @@
+.headline {
+  height: 20vh;
+  background-color: rgba(175, 227, 243, 0.555);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(38, 38, 39);
+  font-size: 54px;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.input {
+  padding: 10px;
+  width: 400px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(157, 158, 158);
+  background-color: white;
+  opacity: 0.5;
+}
+.inputfields {
+  width: 400px;
+}
+input {
+  border: none;
+  background-color: white;
+}
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+h1 {
+  margin: 20px;
+  opacity: 0.6;
+  font-size: 40px;
+}
+.logincontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  place-items: center;
+  background-color: white;
+}
+.signinform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  background-color: white;
+}
+.signinbtn {
+  min-width: 100%;
+  background-color: rgb(101, 136, 222);
+  border-radius: 10px;
+  border: none;
+  padding: 10px 10px 10px 10px;
+  margin: 0;
+  color: whitesmoke;
+  cursor: pointer;
+}
+.signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signinicon {
+  transform: rotate(90deg);
+  margin-left: 10px;
+  /* margin-top: 5px; */
+}
+.noaccount {
+  margin-top: 10px;
+  align-self: flex-end;
+  text-decoration: none;
+  color: rgb(45, 46, 46);
+  opacity: 0.6;
+}

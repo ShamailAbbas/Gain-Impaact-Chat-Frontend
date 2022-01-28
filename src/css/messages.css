@@ -1,0 +1,65 @@
+.msgcontainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+
+  padding: 5px;
+}
+.allmessages {
+  height: 82vh;
+  /* border: 1px solid red; */
+  overflow-y: scroll;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.allmessages::-webkit-scrollbar {
+  display: none;
+}
+.allmessages {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.inputmsg {
+  flex: 1;
+  padding: 10px;
+  /* border-radius: 20px; */
+
+  border: none;
+}
+.inputmsg:focus {
+  outline: none;
+  box-shadow: none;
+}
+.sendbtn {
+  background-color: rgb(185, 226, 228);
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  margin-left: 20px;
+  border: none;
+  justify-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: whitesmoke;
+  opacity: 0.9;
+}
+.sendmsgform {
+  display: flex;
+  border-radius: 15px;
+  width: 95%;
+  border: 1px solid rgb(185, 226, 228);
+  margin: 2px;
+}
+.sendicon {
+  transform: rotate(90deg);
+  font-size: 32px;
+  color: whitesmoke;
+  margin-left: 5px;
+  /* opacity: 0.8; */
+}

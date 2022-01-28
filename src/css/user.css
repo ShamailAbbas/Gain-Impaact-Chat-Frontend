@@ -1,0 +1,92 @@
+.userwrapper {
+  margin-top: 15px;
+  border-radius: 15px;
+  display: flex;
+  padding: 8px 8px 12px 8px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.otherusers {
+  background-color: rgba(227, 246, 252, 0.897);
+  height: 80%;
+  padding: 5px 15px 0px 15px;
+  overflow-y: scroll;
+  width: 310px;
+  height: 70vh;
+  border-radius: 0px 10px 0px 0px;
+}
+.otherusers::-webkit-scrollbar {
+  display: none;
+}
+.otherusers {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.selecteduserbg {
+  background-color: rgb(101, 136, 222);
+  color: aliceblue;
+}
+.profilepic {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(167, 142, 5);
+  flex: 0.2;
+}
+.detail {
+  margin-left: 15px;
+  flex: 1;
+}
+.username {
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 15px;
+  opacity: 0.8;
+}
+.lastmsg {
+  padding: 0;
+  margin: 0;
+  /* font-weight: 100; */
+  font-size: 12px;
+  opacity: 0.5;
+  margin-top: 5px;
+}
+.lastseen {
+  flex: 0.2;
+  /* font-weight: 100; */
+  font-size: 12px;
+  opacity: 0.6;
+  align-self: flex-start;
+  margin-top: 10px;
+}
+.loggedinuser {
+  border-radius: 0px 0px 10px 0px;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: rgba(227, 246, 252, 0.897);
+  width: 310px;
+  padding: 5px 15px 5px 15px;
+}
+.logout {
+  font-size: 50px;
+  z-index: 100;
+  padding-top: 20px;
+  font-weight: 500;
+  color: rgb(101, 136, 222);
+  position: fixed;
+  bottom: 0px;
+  opacity: 0.8;
+  border-top: 1px solid rgba(95, 94, 94, 0.212);
+  width: 310px;
+  height: 15vh;
+  padding-left: 30px;
+  padding-right: 0px;
+  background-color: rgba(227, 246, 252, 0.897);
+}
+.logoutbtn:hover {
+  cursor: pointer;
+}
