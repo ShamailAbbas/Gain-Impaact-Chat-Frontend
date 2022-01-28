@@ -82,9 +82,10 @@
   opacity: 0.8;
   border-top: 1px solid rgba(95, 94, 94, 0.212);
   width: 310px;
-  height: 15vh;
+  height: 12vh;
   padding-left: 30px;
   padding-right: 0px;
+  margin-left: 0;
   background-color: rgba(227, 246, 252, 0.897);
 }
 .logoutbtn:hover {
