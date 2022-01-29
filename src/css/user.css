@@ -8,11 +8,10 @@
 }
 .otherusers {
   background-color: rgba(227, 246, 252, 0.897);
-  height: 80%;
+  flex: 1;
   padding: 5px 15px 0px 15px;
   overflow-y: scroll;
-  width: 310px;
-  height: 70vh;
+  /* width: 310px; */
   border-radius: 0px 10px 0px 0px;
 }
 .otherusers::-webkit-scrollbar {
@@ -68,8 +67,9 @@
   align-items: center;
   margin-bottom: 10px;
   background-color: rgba(227, 246, 252, 0.897);
-  width: 310px;
+  /* width: 310px; */
   padding: 5px 15px 5px 15px;
+  flex: 0.2;
 }
 .logout {
   font-size: 50px;
@@ -77,15 +77,13 @@
   padding-top: 20px;
   font-weight: 500;
   color: rgb(101, 136, 222);
-  position: fixed;
-  bottom: 0px;
+
   opacity: 0.8;
   border-top: 1px solid rgba(95, 94, 94, 0.212);
-  width: 310px;
-  height: 12vh;
+  /* width: 310px; */
+  flex: 0.2;
   padding-left: 30px;
   padding-right: 0px;
-  margin-left: 0;
   background-color: rgba(227, 246, 252, 0.897);
 }
 .logoutbtn:hover {

@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { gql, useQuery, useSubscription } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import "../../css/user.css";
 import { useMessageDispatch, useMessageState } from "../../context/message";
 import { useAuthState, useAuthDispatch } from "../../context/auth";
 import moment from "moment";
 import { BiLogIn } from "react-icons/bi";
-import isauthanticated from "../../util/isauthanticated";
+import sortbyrecentactivity from "../../util/sortbyrecentactivity";
+
 const GET_USERS = gql`
   query getUsers {
     getUsers {
@@ -16,17 +17,6 @@ const GET_USERS = gql`
         content
         createdAt
       }
-    }
-  }
-`;
-
-const NEW_MESSAGE = gql`
-  subscription newMessage {
-    newMessage {
-      from
-      to
-      content
-      createdAt
     }
   }
 `;
@@ -45,43 +35,13 @@ export default function Users() {
 
   //
 
-  const { data: messageData, error: messageError } =
-    useSubscription(NEW_MESSAGE);
-
-  useEffect(() => {
-    if (!isauthanticated()) {
-      window.location.reload();
-    }
-    if (messageError) console.log(messageError);
-
-    if (messageData) {
-      const message = messageData.newMessage;
-      console.log("message is for ");
-      if (selecteduser == message?.from) {
-        let msg = [...messages, message];
-
-        messageDispatch({
-          type: "ADD_NEW_MESSAGE",
-          payload: { msg, email: message.to },
-        });
-      } else {
-        messageDispatch({
-          type: "SET_USERS_LATEST_MSG",
-          payload: {
-            email: message.from,
-            message,
-            users,
-          },
-        });
-      }
-    }
-  }, [messageError, messageData]);
   //
   const logout = () => {
     authDispatch({ type: "LOGOUT" });
     window.location.href = "/login";
   };
-
+  let sortedbyrecentactivityusers = [];
+  sortedbyrecentactivityusers = sortbyrecentactivity(users);
   return (
     <div className="usercontainer">
       <div className={`loggedinuser `}>
@@ -97,7 +57,7 @@ export default function Users() {
         </div>
       </div>
       <div className="otherusers">
-        {users?.map((u) => {
+        {sortedbyrecentactivityusers?.map((u) => {
           const bg = selecteduser == u.email ? "selecteduserbg" : "";
 
           return (
@@ -135,9 +95,9 @@ export default function Users() {
           );
         })}
       </div>
-      <h1 className="logout">
+      <div className="logout">
         <BiLogIn onClick={logout} className="logoutbtn" />
-      </h1>
+      </div>
     </div>
   );
 }

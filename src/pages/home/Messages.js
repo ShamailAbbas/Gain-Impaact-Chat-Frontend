@@ -48,14 +48,14 @@ export default function Messages() {
     },
     onCompleted: (data) => {
       let msg = [...messages, data.sendMessage];
-
+      console.log("send message");
       messageDispatch({
         type: "ADD_NEW_MESSAGE",
         payload: {
           msg,
-          email: data.sendMessage.to,
-          content: data.sendMessage.content,
-          createdAt: data.sendMessage.createdAt,
+          // email: data.sendMessage.to,
+          // content: data.sendMessage.content,
+          // createdAt: data.sendMessage.createdAt,
         },
       });
     },
@@ -111,17 +111,13 @@ export default function Messages() {
           const sameuser = ismsgfromsameuser == message.from ? true : false;
           const onsamedate =
             isonsamedate ==
-            moment(message.creadtedAt)
-              .subtract(10, "days")
-              .calendar()
-              .toString()
+            moment(message.creadtedAt).format("MM/DD/YYYY").toString()
               ? true
               : false;
           isonsamedate = moment(message.createdAt)
-            .subtract(10, "days")
-            .calendar()
+            .format("MM/DD/YYYY")
             .toString();
-          console.log("is on same date? ", onsamedate);
+
           ismsgfromsameuser = message.from;
 
           return (

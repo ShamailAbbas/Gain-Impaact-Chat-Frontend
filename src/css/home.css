@@ -13,10 +13,13 @@
   margin: 0;
 }
 .usercontainer {
-  flex: 0.33;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 450px));
   margin-right: 20px;
+  overflow-x: hidden;
 }
-.messagecontainer {
-  flex: 1;
+.msgcontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 9fr));
   padding: 5px 20px 5px 20px;
 }

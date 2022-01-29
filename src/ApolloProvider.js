@@ -9,9 +9,9 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { getMainDefinition } from "@apollo/client/utilities";
-
+import { httpurl, websocketurl } from "./util/url.js";
 let httpLink = createHttpLink({
-  uri: "http://localhost:4000/",
+  uri: httpurl,
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -22,17 +22,15 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      Authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
 
 httpLink = authLink.concat(httpLink);
 
-const host = window.location.host;
-
 const wsLink = new WebSocketLink({
-  uri: `ws://gainimpactchatapp.herokuapp.com/`,
+  uri: websocketurl,
   options: {
     reconnect: true,
     connectionParams: {

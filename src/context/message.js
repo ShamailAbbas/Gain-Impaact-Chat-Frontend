@@ -30,16 +30,17 @@ const messageReducer = (state, action) => {
     case "ADD_NEW_MESSAGE": {
       let userscopy = state.users;
       const indexofuser = userscopy.findIndex((user) => {
-        return user.email === action.payload.email;
+        return user.email === state.selecteduser;
       });
-      if (!indexofuser == -1) {
-        userscopy[indexofuser].latestMessage = {
-          content: action.payload.msg[action.payload.msg.length - 1].content,
-          createdAt:
-            action.payload.msg[action.payload.msg.length - 1].createdAt,
-        };
-      }
-
+      console.log(" before  ", userscopy[indexofuser].latestMessage);
+      // if (!indexofuser == -1) {
+      userscopy[indexofuser].latestMessage = {
+        content: action.payload.msg[action.payload.msg.length - 1].content,
+        createdAt: action.payload.msg[action.payload.msg.length - 1].createdAt,
+      };
+      console.log("done");
+      // }
+      console.log(" after ", userscopy[indexofuser].latestMessage);
       return {
         ...state,
         messages: action.payload.msg,
@@ -57,6 +58,10 @@ const messageReducer = (state, action) => {
         content: action.payload.message.content,
         createdAt: action.payload.message.createdAt,
       };
+      console.log(
+        "set users latest msg dispatch hitted ",
+        userscopy[indexofuser]
+      );
       return { ...state, users: userscopy };
 
     default:

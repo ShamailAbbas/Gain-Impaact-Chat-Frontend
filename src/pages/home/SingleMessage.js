@@ -15,12 +15,12 @@ export default function SingleMessage({ message, sameuser, onsamedate }) {
   const textdivright = message.from === user.user.email ? "" : "textdivright";
   const aligntime =
     message.from === user.user.email ? "aligntimeleft" : "aligntimeright";
-
+  console.log(onsamedate);
   return (
     <div className={`${align} textdiv ${textdivright}`}>
       {!onsamedate ? (
         <div className="date">
-          {moment(message.createdAt).subtract(10, "days").calendar()}
+          {moment(message.createdAt).format("MM/DD/YYYY")}
         </div>
       ) : (
         ""
